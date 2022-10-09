@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -44,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
+    var arrNames=['Ramn','Hello','Sweta','Gahj'];
     return Scaffold(
       appBar: AppBar(
 
@@ -53,7 +54,104 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-     body:Padding(
+     body:ListView.separated(itemBuilder: (context, index) {
+       return Row(
+         children: [
+           Padding(
+             padding: const EdgeInsets.all(8.0),
+             child: Column(
+               children: [
+                 Text(arrNames[index],style: TextStyle(fontSize: 21,fontWeight: FontWeight.w500),),
+                 Padding(
+                   padding: const EdgeInsets.all(8.0),
+                   child: Text(arrNames[index],style: TextStyle(fontSize: 11,fontWeight: FontWeight.w500),),
+                 ),
+               ],
+             ),
+           ),
+
+           Padding(
+             padding: const EdgeInsets.all(8.0),
+             child: Text(arrNames[index],style: TextStyle(fontSize: 31,fontWeight: FontWeight.w500),),
+           ),
+           Padding(
+             padding: const EdgeInsets.all(8.0),
+             child: Text(arrNames[index],style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),),
+           )
+         ],
+       );
+
+     },
+     itemCount: arrNames.length,
+       separatorBuilder: (contex,index){
+       return Divider(height: 100,thickness: 20,);
+       },
+     )
+
+
+
+
+
+
+      /* Center(
+       child: ListView(
+           scrollDirection: Axis.vertical
+           ,reverse: true
+           ,children: [
+         Padding(
+           padding: const EdgeInsets.all(8.0),
+           child: Text(
+             'One',
+             style: TextStyle(
+               fontSize: 21,
+               fontWeight: FontWeight.w500,
+             ),
+           ),
+         ),
+         Padding(
+           padding: const EdgeInsets.all(8.0),
+           child: Text(
+             'Two',
+             style: TextStyle(
+               fontSize: 21,
+               fontWeight: FontWeight.w500,
+             ),
+           ),
+         ),
+         Padding(
+           padding: const EdgeInsets.all(8.0),
+           child: Text(
+             'Three',
+             style: TextStyle(
+               fontSize: 21,
+               fontWeight: FontWeight.w500,
+             ),
+           ),
+         ),
+         Padding(
+           padding: const EdgeInsets.all(8.0),
+           child: Text(
+             'Four',
+             style: TextStyle(
+               fontSize: 21,
+               fontWeight: FontWeight.w500,
+             ),
+           ),
+         ),
+         Padding(
+           padding: const EdgeInsets.all(8.0),
+           child: Text(
+             'Five',
+             style: TextStyle(
+               fontSize: 21,
+               fontWeight: FontWeight.w500,
+             ),
+           ),
+         )
+       ]),
+     )
+*/
+     /*Padding(
        padding: const EdgeInsets.all(8.0),
        child: SingleChildScrollView(
          child: Column(
@@ -156,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
          ),
        ),
      )
-
+*/
 
       /*
      Center(
